@@ -2175,6 +2175,107 @@ class TextSplitEffect {
     }
 }
 
+// Animated Background
+class AnimatedBackground {
+    constructor() {
+        this.container = document.createElement('div');
+        this.container.className = 'animated-background';
+        
+        this.gradientOverlay = document.createElement('div');
+        this.gradientOverlay.className = 'gradient-overlay';
+        
+        this.shapesContainer = document.createElement('div');
+        this.shapesContainer.className = 'floating-shapes';
+        
+        this.particleContainer = document.createElement('div');
+        this.particleContainer.className = 'particle-container';
+        
+        this.init();
+    }
+    
+    init() {
+        // Add elements to DOM
+        this.container.appendChild(this.gradientOverlay);
+        this.container.appendChild(this.shapesContainer);
+        this.container.appendChild(this.particleContainer);
+        document.body.insertBefore(this.container, document.body.firstChild);
+        
+        // Create shapes
+        this.createShapes();
+        
+        // Create particles
+        this.createParticles();
+        
+        // Add mouse interaction
+        this.addMouseInteraction();
+    }
+    
+    createShapes() {
+        for (let i = 1; i <= 5; i++) {
+            const shape = document.createElement('div');
+            shape.className = `shape shape-${i}`;
+            this.shapesContainer.appendChild(shape);
+        }
+    }
+    
+    createParticles() {
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            
+            // Random position
+            particle.style.left = `${Math.random() * 100}%`;
+            particle.style.top = `${Math.random() * 100}%`;
+            
+            // Random size
+            const size = Math.random() * 3 + 1;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            
+            // Random animation duration and delay
+            particle.style.animationDuration = `${Math.random() * 3 + 2}s`;
+            particle.style.animationDelay = `${Math.random() * 2}s`;
+            
+            this.particleContainer.appendChild(particle);
+        }
+    }
+    
+    addMouseInteraction() {
+        document.addEventListener('mousemove', (e) => {
+            const { clientX, clientY } = e;
+            const xPos = (clientX / window.innerWidth - 0.5) * 20;
+            const yPos = (clientY / window.innerHeight - 0.5) * 20;
+            
+            // Move shapes based on mouse position
+            this.shapesContainer.style.transform = `translate(${xPos}px, ${yPos}px)`;
+            
+            // Create particles on mouse move
+            if (Math.random() > 0.9) {
+                this.createMouseParticle(e);
+            }
+        });
+    }
+    
+    createMouseParticle(e) {
+        const particle = document.createElement('div');
+        particle.className = 'particle mouse-particle';
+        
+        particle.style.left = `${e.clientX}px`;
+        particle.style.top = `${e.clientY}px`;
+        
+        const size = Math.random() * 4 + 2;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        
+        this.particleContainer.appendChild(particle);
+        
+        // Remove particle after animation
+        particle.addEventListener('animationend', () => {
+            particle.remove();
+        });
+    }
+}
+
 // Initialize all effects
 document.addEventListener('DOMContentLoaded', () => {
     new MagneticCursor();
@@ -2216,4 +2317,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         skillBar.appendChild(badge);
     });
+
+    // Initialize animated background
+    new AnimatedBackground();
 }); 
