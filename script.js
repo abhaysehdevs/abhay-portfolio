@@ -8,7 +8,7 @@ AOS.init({
 
 // Typing Animation
 const typingText = document.querySelector('.typing-text');
-const words = ['Web Designer', 'Digital Marketer', 'BCA Student', 'Tech Innovator'];
+const words = ['Web Designer', 'Digital Marketer', 'Design Manager', 'Tech Innovator'];
 let wordIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
@@ -2103,38 +2103,18 @@ class SkillBadgeEffect {
     
     init() {
         this.skillBars.forEach(bar => {
-            const percent = bar.dataset.percent;
-            const skillName = bar.dataset.skill;
-            
-            const badge = document.createElement('div');
-            badge.className = 'skill-badge';
-            badge.innerHTML = `
-                <div class="badge-icon">
-                    <i class="fas fa-star"></i>
-                </div>
-                <div class="badge-content">
-                    <span class="badge-name">${skillName}</span>
-                    <span class="badge-percent">${percent}%</span>
-                </div>
-            `;
-            
-            bar.appendChild(badge);
+            const progress = bar.querySelector('.progress');
             
             bar.addEventListener('mouseenter', () => {
-                badge.classList.add('active');
-                this.createParticles(badge);
-            });
-            
-            bar.addEventListener('mouseleave', () => {
-                badge.classList.remove('active');
+                this.createParticles(bar);
             });
         });
     }
     
-    createParticles(badge) {
+    createParticles(element) {
         for (let i = 0; i < 5; i++) {
             const particle = document.createElement('div');
-            particle.className = 'badge-particle';
+            particle.className = 'skill-particle';
             
             const x = (Math.random() - 0.5) * 40;
             const y = (Math.random() - 0.5) * 40;
@@ -2142,7 +2122,7 @@ class SkillBadgeEffect {
             particle.style.setProperty('--x', `${x}px`);
             particle.style.setProperty('--y', `${y}px`);
             
-            badge.appendChild(particle);
+            element.appendChild(particle);
             
             particle.style.animation = `particleFloat ${Math.random() * 0.5 + 0.5}s ease-out forwards`;
             
@@ -2298,26 +2278,20 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('h1, h2').forEach(heading => {
         heading.classList.add('split-text');
     });
-    
-    // Add skill badges to skill bars
-    document.querySelectorAll('.skill-bar').forEach(skillBar => {
-        const skillInfo = skillBar.querySelector('.skill-info');
-        const skillName = skillInfo.querySelector('span:first-child').textContent;
-        const skillPercent = skillInfo.querySelector('span:last-child').textContent;
-        
-        const badge = document.createElement('div');
-        badge.className = 'skill-badge';
-        badge.innerHTML = `
-            <div class="badge-icon"><i class="fas fa-check"></i></div>
-            <div class="badge-content">
-                <div class="badge-name">${skillName}</div>
-                <div class="badge-percent">${skillPercent}</div>
-            </div>
-        `;
-        
-        skillBar.appendChild(badge);
-    });
 
     // Initialize animated background
     new AnimatedBackground();
+
+    // Handle profile photo loading
+    const profilePhoto = document.querySelector('.profile-photo');
+    if (profilePhoto) {
+        profilePhoto.addEventListener('load', () => {
+            profilePhoto.classList.add('loaded');
+        });
+        
+        // If the image is already cached, trigger the load event manually
+        if (profilePhoto.complete) {
+            profilePhoto.classList.add('loaded');
+        }
+    }
 }); 

@@ -32,6 +32,9 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <div class="background-animation">
+            <canvas id="particleCanvas"></canvas>
+        </div>
         <div class="hero-content" data-aos="fade-up">
             <h1>Hi, I'm Abhay Sehdev</h1>
             <div class="typing-container">
@@ -47,10 +50,11 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="about-content">
+            <h2 data-aos="fade-up">About Me</h2>
             <div class="photo-holder">
                 <div class="photo-frame">
                     <div class="photo-inner">
-                        <img src="assets/images/profile.jpg" alt="Abhay Sehdev" class="profile-photo">
+                        <img src="assets/images/abhaypic.png" alt="Abhay Sehdev" class="profile-photo" loading="lazy">
                     </div>
                     <div class="photo-overlay">
                         <div class="photo-info">
@@ -59,13 +63,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="photo-decoration">
-                    <div class="decoration-circle"></div>
-                    <div class="decoration-square"></div>
-                    <div class="decoration-dots"></div>
-                </div>
             </div>
-            <h2 data-aos="fade-up">About Me</h2>
+            <div class="intro-text">
+                <p data-aos="fade-up" data-aos-delay="100">
+                    Hello! I'm a <span class="highlight">Creative Technologist</span> and <span class="highlight">Digital Marketing</span> enthusiast currently pursuing my BCA at JIMS Vasant Kunj.
+                </p>
+                <p data-aos="fade-up" data-aos-delay="200">
+                    As the Design Manager at Digitek Club, I blend creativity with technology to craft engaging digital experiences. My journey in tech and marketing has equipped me with a unique perspective on creating impactful digital solutions.
+                </p>
+                <p data-aos="fade-up" data-aos-delay="300">
+                    I'm passionate about <span class="highlight">web development</span>, <span class="highlight">e-commerce</span>, and leveraging technology to solve real-world challenges. My experience includes successful projects in digital marketing and web development.
+                </p>
+            </div>
             <div class="timeline" data-aos="fade-up">
                 <div class="timeline-item">
                     <div class="timeline-content">
@@ -79,18 +88,6 @@
                         <p>Digitek Club</p>
                     </div>
                 </div>
-            </div>
-            <div class="certificates" data-aos="fade-up">
-                <h3>Certifications</h3>
-                <div class="certificate-grid">
-                    <div class="certificate">Digital Marketing - IIMB</div>
-                    <div class="certificate">SWAYAM E-Commerce</div>
-                </div>
-            </div>
-            <div class="quote" data-aos="fade-up">
-                <blockquote>
-                    "I love creating digital experiences that make a difference."
-                </blockquote>
             </div>
         </div>
     </section>
@@ -169,7 +166,7 @@
                     </div>
                 </div>
             </div>
-            <div class="skill-category" data-aos="fade-up">
+            <div class="skill-category">
                 <h3>Digital Marketing</h3>
                 <div class="skill-bars">
                     <div class="skill-bar">

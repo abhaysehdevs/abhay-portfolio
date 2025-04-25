@@ -215,14 +215,11 @@ body.dark-mode {
 
 /* Hero Section */
 .hero {
-    height: 100vh;
+    position: relative;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    padding: 0 5%;
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%);
-    position: relative;
     overflow: hidden;
 }
 
@@ -263,7 +260,13 @@ body.dark-mode {
 
 .hero-content {
     position: relative;
-    z-index: 1;
+    z-index: 2;
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     max-width: 800px;
 }
 
@@ -370,13 +373,23 @@ body.dark-mode {
     background-color: #1f2937;
 }
 
+.about-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 0 2rem;
+}
+
 .about h2 {
     text-align: center;
     margin-bottom: 3rem;
     position: relative;
     display: inline-block;
-    left: 50%;
-    transform: translateX(-50%);
+    width: 100%;
 }
 
 .about h2::after {
@@ -391,7 +404,23 @@ body.dark-mode {
     border-radius: 3px;
 }
 
+.photo-holder {
+    width: 100%;
+    max-width: 300px;
+    margin: 2rem auto;
+    position: relative;
+}
+
+.about-content::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
 .timeline {
+    width: 100%;
+    margin-top: 3rem;
+    clear: both;
     position: relative;
     max-width: 800px;
     margin: 4rem auto;
@@ -469,15 +498,12 @@ body.dark-mode {
     margin-bottom: 0.5rem;
 }
 
-.certificate-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin: 2rem 0;
+.certificates {
+    margin-top: 2rem;
 }
 
 .certificate {
-    background: white;
+    background: var(--bg-color);
     padding: 1.5rem;
     border-radius: var(--border-radius-md);
     box-shadow: var(--shadow-md);
@@ -487,19 +513,13 @@ body.dark-mode {
     overflow: hidden;
 }
 
-.certificate::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background: var(--gradient-primary);
-}
-
 .certificate:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-lg);
+}
+
+.dark-mode .certificate {
+    background: rgba(31, 41, 55, 0.9);
 }
 
 .quote {
@@ -707,12 +727,15 @@ blockquote {
 }
 
 .skills-container {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
 }
 
 .skill-category {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     background: white;
     padding: 2rem;
     border-radius: var(--border-radius-md);
@@ -1261,6 +1284,14 @@ footer::before {
         margin-left: 30px !important;
         margin-right: 0;
     }
+
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+
+    .photo-holder {
+        max-width: 250px;
+    }
 }
 
 /* Dark Mode Styles */
@@ -1305,4 +1336,193 @@ img {
 
 img.loaded {
     opacity: 1;
+}
+
+.background-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+}
+
+#particleCanvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.photo-frame {
+    width: 100%;
+    padding-bottom: 100%;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    background: var(--bg-color);
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+}
+
+.photo-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: all 0.3s ease;
+    border-radius: 20px;
+    border: 2px solid var(--primary-color);
+    opacity: 0;
+}
+
+.profile-photo.loaded {
+    opacity: 1;
+}
+
+.photo-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    transform: translateY(100%);
+    transition: all 0.3s ease;
+}
+
+.photo-frame:hover .photo-overlay {
+    transform: translateY(0);
+}
+
+.photo-info {
+    color: white;
+    text-align: center;
+}
+
+.photo-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.photo-info p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Dark mode styles */
+.dark-mode .photo-frame {
+    background: var(--dark-bg);
+}
+
+.photo-decoration {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.decoration-circle {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border: 3px solid var(--primary-color);
+    border-radius: 50%;
+    opacity: 0.2;
+    top: -20px;
+    right: -20px;
+}
+
+.decoration-square {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--accent-color);
+    opacity: 0.2;
+    bottom: -10px;
+    left: -10px;
+    transform: rotate(45deg);
+}
+
+.decoration-dots {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-image: radial-gradient(var(--primary-color) 2px, transparent 2px);
+    background-size: 10px 10px;
+    opacity: 0.2;
+    top: 50%;
+    right: -50px;
+    transform: translateY(-50%);
+}
+
+.dark-mode .decoration-circle {
+    border-color: var(--accent-color);
+}
+
+.dark-mode .decoration-square {
+    border-color: var(--primary-color);
+}
+
+.dark-mode .decoration-dots {
+    background-image: radial-gradient(var(--accent-color) 2px, transparent 2px);
+}
+
+.dark-mode .timeline-content {
+    background-color: #1f2937;
+    color: var(--dark-text);
+}
+
+.dark-mode .timeline-content::before {
+    background-color: #1f2937;
+}
+
+.dark-mode .timeline-content h3 {
+    color: var(--accent-color);
+}
+
+.dark-mode .timeline-content p {
+    color: #e5e7eb;
+}
+
+.intro-text {
+    flex: 1 1 0;
+    padding: 1rem;
+    position: relative;
+    text-align: left;
+}
+
+.intro-text p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.intro-text p.aos-animate {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.6s ease;
+}
+
+.intro-text .highlight {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.dark-mode .intro-text p {
+    color: var(--dark-text);
 } 
