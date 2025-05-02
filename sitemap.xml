@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    <!-- Created with Free Online Sitemap Generator -->
+
+    <url>
+        <loc>https://abhaysehdevs.github.io/</loc>
+        <lastmod>2024-11-21T21:33:13+00:00</lastmod>
+        <priority>1.00</priority>
+    </url>
+    <url>
+        <loc>https://abhaysehdevs.github.io/index.html</loc>
+        <lastmod>2024-11-21T21:33:13+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://abhaysehdevs.github.io/products.html</loc>
+        <lastmod>2024-11-21T21:33:13+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://abhaysehdevs.github.io/about.html</loc>
+        <lastmod>2024-11-21T21:33:13+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://abhaysehdevs.github.io/contact.html</loc>
+        <lastmod>2024-11-21T21:33:13+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://abhaysehdevs.github.io/login.html</loc>
+        <lastmod>2024-11-21T21:33:13+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://abhaysehdevs.github.io/cart.html</loc>
+        <lastmod>2024-11-21T21:33:13+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://abhaysehdevs.github.io/register.html</loc>
+        <lastmod>2024-11-21T21:33:13+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+
+</urlset>

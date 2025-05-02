@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore GharDazzle's collection of stylish home appliances and decor. Shop for sofas, lamps, mirrors, home appliances and more at affordable prices.">
+    <meta name="keywords" content="home appliances, home decor, GharDazzle, ghar dazzle, Ghar dazzle, Ghar dazzle, Ghar dazle, home decoration, decoration, affordable home appliances, home Appliances ">
+    <meta name="author" content="GharDazzle">
+    <title>Contact Us - GharDazzle</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #e9ecef, #ffffff);
+            overflow-x: hidden;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #FBBC09; /* Change color on hover */
+        }
+
+        section {
+            max-width: 600px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-20px);
+            opacity: 0;
+            animation: fadeInUp 0.6s forwards;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        h2 {
+            color: #333;
+            cursor: pointer;
+            transition: color 0.3s;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        h2:hover {
+            color: #FBBC09; /* Change color on hover */
+        }
+
+    </style>
+</head>
+<body>
+ <!-- Header -->
+ <header>
+    <div class="logo-container">
+        <a href="index.html">
+            <img src="ghardazzle-logo.png" alt="GharDazzle Logo" class="animated-logo">
+        </a>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html" class="active">Shop</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li>
+                <a href="login.html" class="profile">
+                    <img src="login.png" alt="profile" class="profile" style="width: 30px; height: auto;">
+            </a>
+            </li>
+            <li>
+                <a href="cart.html" class="cart">
+                    <img src="cart-icon.png" alt="Cart" class="cart-icon" style="width: 30px; height: auto;">
+                    <span class="cart-count">0</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search for products...">
+        <button onclick="searchProducts()">Search</button>
+    </div>        
+</header>
+
+    <section>
+        <h2 onclick="toggleContactInfo()">Contact Us</h2>
+        <p id="contact-info">If you have any questions, feel free to reach out to us via email at <a href="mailto:ghardazzle@gmail.com">ghardazzle@gmail.com</a> or call us at +919811539510.</p>
+    </section>
+
+       <!-- Footer -->
+       <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <img src="ghardazzle-logo.png" alt="GharDazzle Logo" class="footer-logo">
+                <p>Your one-stop shop for stylish home decor and appliances. Transform your space with GharDazzle!</p>
+            </div>
+    
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Shop</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p>Email: ghardazzle@gmail.com</p>
+                <p>Phone: +91 98115 39510</p>
+                <p>Address: Shahdara, Delhi, India</p>
+            </div>
+    
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#"><img src="Facebook.png" alt="Facebook"></a>
+                    <a href="#"><img src="Instagram.png" alt="Instagram"></a>
+                    <a href="#"><img src="Twitter.png" alt="Twitter"></a>
+                    <a href="#"><img src="Google.png" alt="Google"></a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="footer-bottom">
+            <p>&copy; 2024 GharDazzle. All Rights Reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p> | <a href="refundpolicy.html"> Refund Policy</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>

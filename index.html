@@ -3,281 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhay Sehdev - Creative Technologist & Digital Marketer</title>
+    <meta name="description" content="Explore GharDazzle's collection of stylish home appliances and decor. Shop for sofas, lamps, mirrors, home appliances and more at affordable prices.">
+    <meta name="keywords" content="home appliances, home decor, GharDazzle, ghar dazzle, Ghar dazzle, Ghar dazzle, Ghar dazle, home decoration, decoration, affordable home appliances, home Appliances ">
+    <meta name="author" content="GharDazzle">
+    <title>Ghar Dazzle</title>
+    <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script defer src="scripts.js"></script>
+    <script>
+        // JavaScript to handle login and logout visibility
+        function loginUser(event) {
+            event.preventDefault();
+            // Simulate user login - set a flag in local storage
+            localStorage.setItem('isLoggedIn', 'true');
+            updateHeaderLinks();
+        }
+
+        function logoutUser() {
+            // Clear login flag and update header links
+            localStorage.removeItem('isLoggedIn');
+            updateHeaderLinks();
+        }
+
+        function updateHeaderLinks() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            document.getElementById('user-link').style.display = isLoggedIn ? 'none' : 'inline';
+            document.querySelector('.logout-link').style.display = isLoggedIn ? 'inline' : 'none';
+        }
+
+        document.addEventListener('DOMContentLoaded', updateHeaderLinks);
+    </script>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="logo">AS</div>
-        <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
-            <a href="#resume">Resume</a>
-            <a href="#contact">Contact</a>
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="ghardazzle-logo.png" alt="GharDazzle Logo" class="animated-logo">
+            </a>
         </div>
-        <div class="theme-toggle">
-            <i class="fas fa-moon"></i>
-        </div>
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="background-animation">
-            <canvas id="particleCanvas"></canvas>
-        </div>
-        <div class="hero-content" data-aos="fade-up">
-            <h1>Hi, I'm Abhay Sehdev</h1>
-            <div class="typing-container">
-                <span class="typing-text"></span>
-            </div>
-            <div class="cta-buttons">
-                <a href="#projects" class="btn primary">View My Work</a>
-                <a href="#contact" class="btn secondary">Hire Me</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="about-content">
-            <h2 data-aos="fade-up">About Me</h2>
-            <div class="photo-holder">
-                <div class="photo-frame">
-                    <div class="photo-inner">
-                        <img src="assets/images/abhaypic.png" alt="Abhay Sehdev" class="profile-photo" loading="lazy">
-                    </div>
-                    <div class="photo-overlay">
-                        <div class="photo-info">
-                            <h3>Abhay Sehdev</h3>
-                            <p>Creative Technologist & Digital Marketer</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="intro-text">
-                <p data-aos="fade-up" data-aos-delay="100">
-                    Hello! I'm a <span class="highlight">Creative Technologist</span> and <span class="highlight">Digital Marketing</span> enthusiast currently pursuing my BCA at JIMS Vasant Kunj.
-                </p>
-                <p data-aos="fade-up" data-aos-delay="200">
-                    As the Design Manager at Digitek Club, I blend creativity with technology to craft engaging digital experiences. My journey in tech and marketing has equipped me with a unique perspective on creating impactful digital solutions.
-                </p>
-                <p data-aos="fade-up" data-aos-delay="300">
-                    I'm passionate about <span class="highlight">web development</span>, <span class="highlight">e-commerce</span>, and leveraging technology to solve real-world challenges. My experience includes successful projects in digital marketing and web development.
-                </p>
-            </div>
-            <div class="timeline" data-aos="fade-up">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>BCA Student</h3>
-                        <p>JIMS Vasant Kunj</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Design Manager</h3>
-                        <p>Digitek Club</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <h2 data-aos="fade-up">My Projects</h2>
-        <div class="project-filters" data-aos="fade-up">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="web">Web Design</button>
-            <button class="filter-btn" data-filter="ecommerce">E-Commerce</button>
-            <button class="filter-btn" data-filter="ai">AI</button>
-            <button class="filter-btn" data-filter="college">College Projects</button>
-        </div>
-        <div class="project-grid">
-            <div class="project-card" data-category="ecommerce" data-aos="fade-up">
-                <img src="placeholder.jpg" alt="GharDazzle">
-                <h3>GharDazzle</h3>
-                <p>E-Commerce store for home decor with wishlist & PWA</p>
-                <button class="view-project">View Details</button>
-            </div>
-            <div class="project-card" data-category="ecommerce" data-aos="fade-up">
-                <img src="placeholder.jpg" alt="Dinanath & Sons">
-                <h3>Dinanath & Sons</h3>
-                <p>Online store for jewellery tools & equipment</p>
-                <button class="view-project">View Details</button>
-            </div>
-            <div class="project-card" data-category="ai" data-aos="fade-up">
-                <img src="placeholder.jpg" alt="Artler.ai">
-                <h3>Artler.ai</h3>
-                <p>AI-powered NFT authenticator</p>
-                <button class="view-project">View Details</button>
-            </div>
-            <div class="project-card" data-category="college" data-aos="fade-up">
-                <img src="placeholder.jpg" alt="Smart India Hackathon">
-                <h3>Smart India Hackathon 2024</h3>
-                <p>DDoS innovation entry</p>
-                <button class="view-project">View Details</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <h2 data-aos="fade-up">Skills</h2>
-        <div class="skills-container">
-            <div class="skill-category" data-aos="fade-up">
-                <h3>Web Development</h3>
-                <div class="skill-bars">
-                    <div class="skill-bar">
-                        <div class="skill-info">
-                            <span>HTML</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="progress" style="width: 90%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-info">
-                            <span>CSS</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="progress" style="width: 85%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-info">
-                            <span>JavaScript</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="progress" style="width: 80%"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="skill-category">
-                <h3>Digital Marketing</h3>
-                <div class="skill-bars">
-                    <div class="skill-bar">
-                        <div class="skill-info">
-                            <span>SEO</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="progress" style="width: 85%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-info">
-                            <span>Meta Ads</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="progress" style="width: 80%"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Resume Section -->
-    <section id="resume" class="resume">
-        <h2 data-aos="fade-up">Resume & Achievements</h2>
-        <div class="resume-container">
-            <div class="achievements" data-aos="fade-up">
-                <h3>Achievements</h3>
-                <div class="achievement-grid">
-                    <div class="achievement">
-                        <i class="fas fa-trophy"></i>
-                        <p>Runner-up Digital Marketing Midterm (IIMB)</p>
-                    </div>
-                    <div class="achievement">
-                        <i class="fas fa-award"></i>
-                        <p>Second Round Entry: Smart India Hackathon</p>
-                    </div>
-                    <div class="achievement">
-                        <i class="fas fa-star"></i>
-                        <p>Design Manager - Digitek Club</p>
-                    </div>
-                    <div class="achievement">
-                        <i class="fas fa-certificate"></i>
-                        <p>GDG Member Delhi</p>
-                    </div>
-                </div>
-            </div>
-            <div class="download-resume" data-aos="fade-up">
-                <a href="resume.pdf" class="btn primary" download>Download Resume</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <h2 data-aos="fade-up">Contact Me</h2>
-        <div class="contact-container">
-            <div class="contact-form" data-aos="fade-up">
-                <form id="contactForm">
-                    <div class="form-group">
-                        <input type="text" id="name" required>
-                        <label for="name">Name</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" required>
-                        <label for="email">Email</label>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" required></textarea>
-                        <label for="message">Message</label>
-                    </div>
-                    <button type="submit" class="btn primary">Send Message</button>
-                </form>
-            </div>
-            <div class="contact-info" data-aos="fade-up">
-                <div class="social-links">
-                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-behance"></i></a>
-                </div>
-                <div class="whatsapp">
-                    <a href="https://wa.me/919811539510" target="_blank">
-                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html" class="active">Shop</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li>
+                    <a href="login.html" class="profile">
+                        <img src="login.png" alt="profile" class="profile" style="width: 30px; height: auto;">
+                </a>
+                </li>
+                <li>
+                    <a href="cart.html" class="cart">
+                        <img src="cart-icon.png" alt="Cart" class="cart-icon" style="width: 30px; height: auto;">
+                        <span class="cart-count">0</span>
                     </a>
-                </div>
-            </div>
-        </div>
+                </li>
+                <li><a href="wishlist.html" class="active">Wishlist ❤️</a></li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for products...">
+            <button onclick="searchProducts()">Search</button>
+        </div>        
+    </header>
+    
+    <!-- Banner -->
+    <section class="banner">
+        <h1>Welcome to GharDazzle!</h1>
+        <button onclick="window.location.href='products.html'" style="margin-top: 1rem;">Shop Now</button>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Abhay Sehdev. All rights reserved.</p>
-    </footer>
-
-    <!-- Project Modal -->
-    <div class="modal" id="projectModal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <div class="modal-body">
-                <!-- Content will be dynamically inserted here -->
-            </div>
+<!-- Categories Section -->
+<div class="categories-banner">
+    <h2>Shop by Category</h2>
+    <div class="categories-container">
+        <div class="category-item">
+            <a href="products.html?category=sofa">
+                <img src="sofa.jpeg" alt="sofas">
+                <p>Sofas</p>
+            </a>
+        </div>
+        <div class="category-item">
+            <a href="products.html?category=lamps">
+                <img src="lamp.jpeg" alt="Lamps">
+                <p>Lamps</p>
+            </a>
+        </div>
+        <div class="category-item">
+            <a href="products.html?category=decor">
+                <img src="decor.jpeg" alt="Decor">
+                <p>Decor</p>
+            </a>
+        </div>
+        <div class="category-item">
+            <a href="products.html?category=chairs">
+                <img src="chair.jpeg" alt="Chairs">
+                <p>Chairs</p>
+            </a>
+        </div>
+        <div class="category-item">
+            <a href="products.html?category=carpet">
+                <img src="carpet.jpg" alt="Chairs">
+                <p>Chairs</p>
+            </a>
+        </div>
+        <div class="category-item">
+            <a href="products.html?category=wallart">
+                <img src="wallart.jpeg" alt="Chairs">
+                <p>Chairs</p>
+            </a>
         </div>
     </div>
+</div>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="script.js"></script>
+
+    <div class="search-results"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <img src="ghardazzle-logo.png" alt="GharDazzle Logo" class="footer-logo">
+                <p>Your one-stop shop for stylish home decor and appliances. Transform your space with GharDazzle!</p>
+            </div>
+    
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Shop</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p>Email: ghardazzle@gmail.com</p>
+                <p>Phone: +91 98115 39510</p>
+                <p>Address: Shahdara, Delhi, India</p>
+            </div>
+    
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#"><img src="Facebook.png" alt="Facebook"></a>
+                    <a href="#"><img src="Instagram.png" alt="Instagram"></a>
+                    <a href="#"><img src="Twitter.png" alt="Twitter"></a>
+                    <a href="#"><img src="Google.png" alt="Google"></a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="footer-bottom">
+            <p>&copy; 2024 GharDazzle. All Rights Reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p> | <a href="refundpolicy.html"> Refund Policy</a></p>
+        </div>
+    </footer>
+    
 </body>
-</html> 
+</html>

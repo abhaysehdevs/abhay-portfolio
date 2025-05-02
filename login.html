@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - GharDazzle</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="scripts.js"></script>
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LelmoIqAAAAAMkHeM0oegygQpoWhvhkpl_juUbc"></script>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="ghardazzle-logo.png" alt="GharDazzle Logo" class="animated-logo">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html" class="active">Shop</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li>
+                    <a href="login.html" class="profile">
+                        <img src="login.png" alt="profile" class="profile" style="width: 30px; height: auto;">
+                </a>
+                </li>
+                <li>
+                    <a href="cart.html" class="cart">
+                        <img src="cart-icon.png" alt="Cart" class="cart-icon" style="width: 30px; height: auto;">
+                        <span class="cart-count">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for products...">
+            <button onclick="searchProducts()">Search</button>
+        </div>        
+    </header>
+
+    <!-- Login Form -->
+    <section class="login-section">
+        <div class="login-container">
+            <h2>Login to Your Account</h2>
+            <form onsubmit="loginUser(event)">
+                <div class="input-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+            <p>Don't have an account? <a href="register.html">Register here</a></p>
+        </div>
+    </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <img src="ghardazzle-logo.png" alt="GharDazzle Logo" class="footer-logo">
+                <p>Your one-stop shop for stylish home decor and appliances. Transform your space with GharDazzle!</p>
+            </div>
+    
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Shop</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p>Email: ghardazzle@gmail.com</p>
+                <p>Phone: +91 98115 39510</p>
+                <p>Address: Shahdara, Delhi, India</p>
+            </div>
+    
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#"><img src="Facebook.png" alt="Facebook"></a>
+                    <a href="#"><img src="Instagram.png" alt="Instagram"></a>
+                    <a href="#"><img src="Twitter.png" alt="Twitter"></a>
+                    <a href="#"><img src="Google.png" alt="Google"></a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="footer-bottom">
+            <p>&copy; 2024 GharDazzle. All Rights Reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p> | <a href="refundpolicy.html"> Refund Policy</a></p>
+        </div>
+    </footer>
+</body>
+</html>

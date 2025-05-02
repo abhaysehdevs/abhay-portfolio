@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore GharDazzle's collection of stylish home appliances and decor. Shop for sofas, lamps, mirrors, home appliances and more at affordable prices.">
+    <meta name="keywords" content="home appliances, home decor, GharDazzle, ghar dazzle, Ghar dazzle, Ghar dazzle, Ghar dazle, home decoration, decoration, affordable home appliances, home Appliances ">
+    <meta name="author" content="GharDazzle">
+    <title>Your Cart - GharDazzle</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="scripts.js"></script> <!-- Ensure scripts.js is loaded -->
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="ghardazzle-logo.png" alt="GharDazzle Logo" class="animated-logo">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html" class="active">Shop</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li>
+                    <a href="login.html" class="profile">
+                        <img src="login.png" alt="profile" class="profile" style="width: 30px; height: auto;">
+                </a>
+                </li>
+                <li>
+                    <a href="cart.html" class="cart">
+                        <img src="cart-icon.png" alt="Cart" class="cart-icon" style="width: 30px; height: auto;">
+                        <span class="cart-count">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for products...">
+            <button onclick="searchProducts()">Search</button>
+        </div>        
+    </header>
+
+    <section class="cart-section">
+        <div class="container">
+            <h2>Your Shopping Cart</h2>
+
+            <!-- Cart Items will appear here -->
+            <div class="cart-items">
+                <p>Your cart is currently empty.</p>
+            </div>
+
+            <div class="cart-total" id="cart-totalP">
+                <h3>Total:  <span class="total-price">0.00</span></h3>
+                <button id="empty-cart-btn" class="empty-cart-btn" onclick="emptyCart()">Empty Cart</button> <!-- Added id to empty cart button -->
+                <button id="checkout-btn" class="checkout-btn" onclick="window.location.href='checkout.html'">Proceed to Checkout</button> <!-- Added id to checkout button -->
+            </div>
+        </div>
+    </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <img src="ghardazzle-logo.png" alt="GharDazzle Logo" class="footer-logo">
+                    <p>Your one-stop shop for stylish home decor and appliances. Transform your space with GharDazzle!</p>
+                </div>
+        
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Shop</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+        
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p>Email: ghardazzle@gmail.com</p>
+                    <p>Phone: +91 98115 39510</p>
+                    <p>Address: Shahdara, Delhi, India</p>
+                </div>
+        
+                <div class="footer-social">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#"><img src="Facebook.png" alt="Facebook"></a>
+                        <a href="#"><img src="Instagram.png" alt="Instagram"></a>
+                        <a href="#"><img src="Twitter.png" alt="Twitter"></a>
+                        <a href="#"><img src="Google.png" alt="Google"></a>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="footer-bottom">
+                <p>&copy; 2024 GharDazzle. All Rights Reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p> | <a href="refundpolicy.html"> Refund Policy</a></p>
+            </div>
+        </footer>
+
+</body>
+</html>

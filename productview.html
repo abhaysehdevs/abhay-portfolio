@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore GharDazzle's collection of stylish home appliances and decor. Shop for sofas, lamps, mirrors, home appliances and more at affordable prices.">
+    <meta name="keywords" content="home appliances, home decor, GharDazzle, ghar dazzle, Ghar dazzle, Ghar dazzle, Ghar dazle, home decoration, decoration, affordable home appliances, home Appliances ">
+    <meta name="author" content="GharDazzle">
+    <title>Product Preview - GharDazzle</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="scripts.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="ghardazzle-logo.png" alt="GharDazzle Logo" class="animated-logo">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html" class="active">Shop</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li>
+                    <a href="login.html" class="profile">
+                        <img src="login.png" alt="profile" class="profile" style="width: 30px; height: auto;">
+                </a>
+                </li>
+                <li>
+                    <a href="cart.html" class="cart">
+                        <img src="cart-icon.png" alt="Cart" class="cart-icon" style="width: 30px; height: auto;">
+                        <span class="cart-count">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for products...">
+            <button onclick="searchProducts()">Search</button>
+        </div>        
+    </header>
+
+    <!-- productview.html -->
+    <section id="product-details">
+      <div id="product-info">
+          <img id="product-image" alt="Product Image">
+          <div id="product-info-text">
+              <h2 id="product-name"></h2>
+              <p id="product-price"></p>
+              <p id="product-description"></p>
+              <button id="add-to-cart" onclick="addToCart()">Add to Cart</button>
+          </div>
+      </div>
+  </section>
+
+  <script src="products.js"></script>
+  <script>
+// Get the product ID from the URL query string
+const params = new URLSearchParams(window.location.search);
+const productId = parseInt(params.get('id'));
+console.log("Product view: id =", productId);
+
+// Find the product in the global products array (make sure your products array is defined and accessible)
+const product = products.find(p => p.id === productId);
+
+if (product) {
+  // Update the product details on the page
+  document.getElementById('product-name').textContent = product.name;
+  document.getElementById('product-price').textContent = `Price: ₹${product.price.toLocaleString()}`;
+  document.getElementById('product-description').textContent = product.description;
+  document.getElementById('product-image').src = product.image;
+} else {
+  console.error("Product not found for id:", productId);
+  document.getElementById('product-info').innerHTML = '<p>Product not found.</p>';
+}
+
+function updateCart(productId, productName, productPrice, action) {
+    const product = products.find(p => p.name === productName); // Get full product object
+    const existingItemIndex = cartItems.findIndex(item => item.id === product.id); // Match by ID
+
+    cartItems.push({
+        id: product.id, 
+        name: productName,
+        price: productPrice,
+        quantity: quantity
+    });
+}
+  </script> 
+
+<section class="recommended-products">
+    <h2>Recommended Products</h2>
+    <div class="product-grid" id="recommended-products"></div>
+  </section>
+  <script>
+    // Display recommended products (e.g., same category)
+    // Filter recommended products based on the current product's category (excluding the current product)
+const recommendedProducts = products.filter(p => 
+    p.category && product.category &&
+    p.category.toLowerCase() === product.category.toLowerCase() &&
+    p.id !== product.id
+);
+
+const recommendedContainer = document.getElementById('recommended-products');
+recommendedContainer.innerHTML = ''; // Clear existing content
+
+if (recommendedProducts.length === 0) {
+    recommendedContainer.innerHTML = '<p>No recommended products found.</p>';
+} else {
+    recommendedProducts.forEach(p => {
+        recommendedContainer.innerHTML += `
+            <div class="product-item">
+                <img src="${p.image}" alt="${p.name}" onclick="openQuickView(${p.id})">
+                <h3>${p.name}</h3>
+                <p>₹${p.price.toLocaleString()}</p>
+            </div>
+        `;
+    });
+}
+
+</script>
+  <!-- Styles for Wishlist in Product View -->
+<style>
+    .wishlist-button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 2rem;
+      color: #ff4757;
+    }
+    .wishlist-button.added {
+      color: #ff6b81;
+    }
+  </style>
+  
+  <!-- JavaScript for Wishlist Functionality on Product View -->
+  <script>
+    let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+  
+    // Function to check if the product is already in the wishlist
+    function isProductInWishlist(productId) {
+      return wishlist.some(item => item.id === productId);
+    }
+  
+    // Function to toggle wishlist status for a product
+    function toggleWishlist(product) {
+      const index = wishlist.findIndex(item => item.id === product.id);
+      if (index > -1) {
+        wishlist.splice(index, 1);
+        alert(`${product.name} removed from your wishlist.`);
+      } else {
+        wishlist.push(product);
+        alert(`${product.name} added to your wishlist.`);
+      }
+      localStorage.setItem('wishlist', JSON.stringify(wishlist));
+      updateWishlistButton(product.id);
+    }
+  
+    // Function to update wishlist button appearance
+    function updateWishlistButton(productId) {
+      const wishlistBtn = document.getElementById('wishlist-button');
+      if (isProductInWishlist(productId)) {
+        wishlistBtn.textContent = '❤️';
+        wishlistBtn.classList.add('added');
+      } else {
+        wishlistBtn.textContent = '🤍';
+        wishlistBtn.classList.remove('added');
+      }
+    }
+  
+    // Add wishlist button to product view
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const productId = parseInt(params.get('id'));
+      const product = products.find(p => p.id === productId);
+  
+      const productContainer = document.querySelector('#product-info-text');
+      const wishlistButton = document.createElement('button');
+      wishlistButton.id = 'wishlist-button';
+      wishlistButton.classList.add('wishlist-button');
+      wishlistButton.addEventListener('click', () => toggleWishlist(product));
+      productContainer.appendChild(wishlistButton);
+  
+      updateWishlistButton(productId);
+    });
+</script>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+          <div class="footer-about">
+              <img src="ghardazzle-logo.png" alt="GharDazzle Logo" class="footer-logo">
+              <p>Your one-stop shop for stylish home decor and appliances. Transform your space with GharDazzle!</p>
+          </div>
+  
+          <div class="footer-links">
+              <h4>Quick Links</h4>
+              <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="products.html">Shop</a></li>
+                  <li><a href="about.html">About Us</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+              </ul>
+          </div>
+  
+          <div class="footer-contact">
+              <h4>Contact Us</h4>
+              <p>Email: ghardazzle@gmail.com</p>
+              <p>Phone: +91 98115 39510</p>
+              <p>Address: Shahdara, Delhi, India</p>
+          </div>
+  
+          <div class="footer-social">
+              <h4>Follow Us</h4>
+              <div class="social-icons">
+                  <a href="#"><img src="Facebook.png" alt="Facebook"></a>
+                  <a href="#"><img src="Instagram.png" alt="Instagram"></a>
+                  <a href="#"><img src="Twitter.png" alt="Twitter"></a>
+                  <a href="#"><img src="Google.png" alt="Google"></a>
+              </div>
+          </div>
+      </div>
+  
+      <div class="footer-bottom">
+          <p>&copy; 2024 GharDazzle. All Rights Reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p> | <a href="refundpolicy.html"> Refund Policy</a></p>
+      </div>
+  </footer>
+</body>
+</html>
